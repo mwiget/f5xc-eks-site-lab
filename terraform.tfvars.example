@@ -1,0 +1,11 @@
+project_prefix    = "prefix"
+owner             = "<e.g. email address>"
+aws_access_key    = ""
+aws_secret_key    = ""
+
+f5xc_api_url      = "https://............./api"
+f5xc_api_token    = ""
+f5xc_tenant       = ""
+f5xc_api_p12_file = "<path to api-creds.p12 file>
+
+aws_region        = "us-west-1"
