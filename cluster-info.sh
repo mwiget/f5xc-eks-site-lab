@@ -13,3 +13,4 @@ echo ""
 echo -n "IAM OIDC provider: "
 aws eks describe-cluster --name $EKS_NAME --query "cluster.identity.oidc.issuer" --region $AWS_REGION --output text
 echo ""
+kubectl get pods -n ves-system

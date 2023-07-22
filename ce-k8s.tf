@@ -23,7 +23,16 @@ resource "volterra_registration_approval" "node" {
   count = var.worker_node_count
   cluster_name  = var.cluster_name
   cluster_size  = var.worker_node_count > 1 ? 3 : 1
-  retry = 5
+  retry = 10
   wait_time = 60
   hostname = format("vp-manager-%d", count.index)
+}
+
+resource "volterra_site_state" "decommission_when_delete" {
+  depends_on = [volterra_registration_approval.node]
+  name       = var.cluster_name
+  when       = "delete"
+  state      = "DECOMMISSIONING"
+  retry      = 5
+  wait_time  = 60
 }
