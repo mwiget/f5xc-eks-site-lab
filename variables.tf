@@ -3,9 +3,9 @@ variable "aws_region" {
   description = "AWS region name"
 }
 
-variable "project_prefix" {
+variable "cluster_name" {
   type        = string
-  default     = "f5xc"
+  default     = "example-eks1"
 }
 
 variable "aws_access_key" {
@@ -45,7 +45,23 @@ variable "f5xc_namespace" {
 }
 
 variable "owner" {}
+
+variable "kubernetes_version" {
+  type    = string
+  default = "1.23"
+}
+
 variable "worker_node_count" {
   type    = number
   default = 3
+}
+
+variable "latitude" {
+  type    = number
+  default = 37
+}
+
+variable "longitude" {
+  type    = number
+  default = -121
 }
