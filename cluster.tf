@@ -32,6 +32,7 @@ resource "aws_eks_node_group" "eks" {
   }
 
   instance_types  = ["t2.xlarge"]
+  disk_size       = 100           # in GBytes
 
   update_config {
     max_unavailable = 1
