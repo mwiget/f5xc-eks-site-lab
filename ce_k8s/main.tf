@@ -9,6 +9,7 @@ resource "local_file" "ce_k8s_yaml" {
 }
 
 resource "null_resource" "ce-k8s" {
+  depends_on = [ local_file.ce_k8s_yaml ]
   provisioner "local-exec" {
     command     = "kubectl --kubeconfig=../eks/kubeconfig apply -f ./ce_k8s.yaml"
   }
