@@ -1,22 +1,7 @@
-variable "aws_region" {
-  type        = string
-  description = "AWS region name"
-}
-
 variable "cluster_name" {
   type        = string
   default     = "example-eks1"
 }
-
-variable "aws_access_key" {
-  type        = string
-  description = "AWS access key used to create infrastructure"
-}
-
-variable "aws_secret_key" {
-  type        = string
-  description = "AWS secret key used to create AWS infrastructure"
-} 
 
 variable "f5xc_api_p12_file" {
   type = string
@@ -65,3 +50,5 @@ variable "longitude" {
   type    = number
   default = -121
 }
+
+variable "aws_region" {}

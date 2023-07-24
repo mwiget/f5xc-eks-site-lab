@@ -8,6 +8,14 @@ output "cluster_endpoint" {
   value       = aws_eks_cluster.eks.endpoint
 }
 
+output "vpc_id" {
+  value = aws_vpc.eks.id
+}
+
+output "subnet_ids" {
+  value = aws_subnet.eks.*.id
+}
+
 output "region" {
   description = "AWS region"
   value       = var.aws_region
@@ -24,4 +32,8 @@ output "oidc" {
 
 output "cluster_arn" {
   value = aws_eks_cluster.eks.arn
+}
+
+output "kubeconfig_file" {
+  value = var.kubeconfig_file
 }

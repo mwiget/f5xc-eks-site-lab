@@ -11,4 +11,4 @@
 old
 kubeconfig*
 *playground
-ce_k8s.yml
+ce_k8s.yaml

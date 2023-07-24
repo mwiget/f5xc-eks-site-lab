@@ -4,12 +4,13 @@ resource "aws_eks_cluster" "eks" {
   role_arn = aws_iam_role.eks-cluster.arn
 
   vpc_config {
-    subnet_ids = aws_subnet.eks.*.id
+    subnet_ids  = aws_subnet.eks.*.id
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
   depends_on = [
+    aws_vpc.eks,
     aws_iam_role_policy_attachment.eks-AmazonEKSClusterPolicy,
     aws_iam_role_policy_attachment.eks-AmazonEKSVPCResourceController,
   ]
@@ -32,7 +33,7 @@ resource "aws_eks_node_group" "eks" {
   }
 
   instance_types  = ["t2.xlarge"]
-  disk_size       = 100           # in GBytes
+  disk_size       = 50           # in GBytes
 
   update_config {
     max_unavailable = 1
@@ -58,5 +59,5 @@ resource "aws_eks_node_group" "eks" {
 
 resource "local_file" "kubeconfig" {
   content  = local.kubeconfig
-  filename = format("./%s.kubeconfig", var.cluster_name)
+  filename = var.kubeconfig_file
 }

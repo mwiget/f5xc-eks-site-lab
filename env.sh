@@ -1,1 +1,1 @@
-export KUBECONFIG="$PWD/marcel-eks.kubeconfig"
+export KUBECONFIG="$PWD/eks/kubeconfig"
