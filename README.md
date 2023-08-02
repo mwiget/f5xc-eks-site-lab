@@ -28,9 +28,9 @@ cd ..
 ```
 
 This deploys F5 XC Kubernetes Site (https://docs.cloud.f5.com/docs/how-to/site-management/create-k8s-site)
-on the EKS cluster with the following adjustments:
+on the EKS cluster using default storage class (gp2):
 
-- Use storageClass gp2 instead of standard to match the default on EKS:
+- Set storageClass gp2 as default on EKS:
 
 ```
 $ kubectl get storageclass

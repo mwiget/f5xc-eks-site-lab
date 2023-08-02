@@ -16,7 +16,6 @@ locals {
     token                     = volterra_token.site.id,
     replicas                  = var.worker_node_count,
     maurice_endpoint_url      = local. maurice_endpoint_url,
-    maurice_mtls_endpoint_url = local.maurice_mtls_endpoint_url,
-    storage_class             = "gp2"
+    maurice_mtls_endpoint_url = local.maurice_mtls_endpoint_url
   })
 }
