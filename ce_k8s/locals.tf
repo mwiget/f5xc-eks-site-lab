@@ -10,7 +10,7 @@ locals {
   site_get_url   = format("%s/%s?response_format=GET_RSP_FORMAT_DEFAULT", var.f5xc_api_url, local.site_get_uri)
 
   ce_k8s_yaml = templatefile("./templates/ce_k8s.yaml.tmpl", {
-    cluster_name              = data.aws_eks_cluster.eks.name,
+    cluster_name              = var.cluster_name
     latitude                  = var.latitude,
     longitude                 = var.longitude,
     token                     = volterra_token.site.id,
